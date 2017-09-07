@@ -26,8 +26,17 @@ function 填色(r, g, b, alpha) {
 	fill(r, g, b, alpha);
 }
 
-function 笔色(r, g, b) {
-	stroke(r, g, b);
+function 笔色(r, g, b, 透明度) {
+	stroke(r, g, b, 透明度);
+}
+
+function 笔色(颜色, 透明度) {
+	stroke(颜色, 透明度);
+}
+
+
+function 笔宽(像素数) {
+	strokeWeight(像素数);
 }
 
 function 长方形(x位置, y位置, 宽, 高) {
@@ -48,4 +57,37 @@ function 无边界() {
 
 function 旋转(角度) {
 	rotate(角度);
+}
+
+function 不填充() {
+	noFill();
+}
+
+function 保存帧(文件名, 扩展名, 时间跨度, 帧速, 回调函数) {
+	saveFrames(文件名, 扩展名, 时间跨度, 帧速, 回调函数);
+}
+
+function 保存状态() {
+	push();
+}
+
+function 恢复状态() {
+	pop();
+}
+
+// z只用于webgl
+function 偏移(x, y, z) {
+  translate(x, y, z);
+}
+
+// 模式为CORNER(默认), CORNERS, CENTER, RADIUS
+function 方形模式(模式) {
+	rectMode(模式);
+}
+
+// 三角相关
+
+// 模式为RADIANS(默认)或者DEGREES
+function 角度模式(模式) {
+  angleMode(模式);
 }
