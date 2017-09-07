@@ -1,3 +1,11 @@
+function 角度() {
+	return DEGREES;
+}
+
+function 中心() {
+	return CENTER;
+}
+
 // 基本属性
 function 帧序号() {
 	return frameCount;
@@ -97,6 +105,11 @@ function 方形模式(模式) {
 // 模式为RADIANS(默认)或者DEGREES
 function 角度模式(模式) {
   angleMode(模式);
+}
+
+// 计算相关
+function 按比例放缩(值, 原始下限, 原始上限, 新下限, 新上限) {
+  return map(值, 原始下限, 原始上限, 新下限, 新上限)
 }
 
 // 其他
