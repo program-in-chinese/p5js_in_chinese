@@ -41,6 +41,32 @@ function 椭圆(中心x位置, 中心y位置, 宽, 高) {
 	ellipse(中心x位置, 中心y位置, 宽, 高);
 }
 
+// 三维相关
+
+function 平面(宽, 高) {
+	plane(宽, 高);
+}
+
+function 立方体(宽, 高, 深) {
+	box(宽, 高, 深);
+}
+
+function 圆柱(半径, 高) {
+	cylinder(半径, 高);
+}
+
+function 圆锥(半径, 高) {
+	cone(半径, 高);
+}
+
+function 环体(环半径, 体半径) {
+	torus(环半径, 体半径);
+}
+
+function 球体(半径) {
+	sphere(半径);
+}
+
 // 颜色设置
 function 背景色(灰度) {
 	background(灰度);
@@ -110,6 +136,11 @@ function 角度模式(模式) {
 // 计算相关
 function 按比例放缩(值, 原始下限, 原始上限, 新下限, 新上限) {
   return map(值, 原始下限, 原始上限, 新下限, 新上限)
+}
+
+// 质地相关
+function 普通质地() {
+	normalMaterial();
 }
 
 // 其他

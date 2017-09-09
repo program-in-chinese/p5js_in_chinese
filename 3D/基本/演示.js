@@ -1,4 +1,3 @@
-
 function 构图(){
   新画布(710, 400, WEBGL);
 
@@ -11,30 +10,30 @@ function mousePressed() {
 */
 function 绘制(){
   背景色(250);
-  normalMaterial();
+  普通质地();
   
   绘制三维物体(-240, -100, function() {
-    plane(70);
+    平面(70);
   });
 
   绘制三维物体(240, 0, function() {
-    box(70, 70, 70);
+    立方体(70, 70, 70);
   });
 
   绘制三维物体(240, 0, function() {
-    cylinder(70, 70);
+    圆柱(70, 70);
   });
   
   绘制三维物体(-240 * 2, 200, function() {
-    cone(70, 70);
+    圆锥(70, 70);
   });
   
   绘制三维物体(240, 0, function() {
-    torus(70, 20);
+    环体(70, 20);
   });
   
   绘制三维物体(240, 0, function() {
-    sphere(70);
+    球体(70);
   });
 }
 
@@ -47,7 +46,8 @@ function 绘制三维物体(x偏移, y偏移, 绘制方法) {
 }
 
 function 三维旋转() {
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
+  var 旋转速度 = 帧序号() * 0.01;
+  rotateZ(旋转速度);
+  rotateX(旋转速度);
+  rotateY(旋转速度);
 }
