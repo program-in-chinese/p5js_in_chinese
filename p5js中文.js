@@ -62,10 +62,6 @@ function 笔宽(像素数) {
 	strokeWeight(像素数);
 }
 
-function 偏移(x, y) {
-	translate(x, y);
-}
-
 function 无边界() {
 	noStroke();
 }
@@ -88,6 +84,10 @@ function 保存状态() {
 
 function 恢复状态() {
 	pop();
+}
+
+function 偏移(x, y) {
+	translate(x, y);
 }
 
 // z只用于webgl
@@ -116,4 +116,9 @@ function 按比例放缩(值, 原始下限, 原始上限, 新下限, 新上限) 
 
 function 新画布(宽, 高) {
 	createCanvas(宽, 高);
+}
+
+// 模式为P2D或者WEBGL
+function 新画布(宽, 高, 模式) {
+	createCanvas(宽, 高, 模式);
 }
