@@ -155,6 +155,14 @@ function 普通质地() {
 	normalMaterial();
 }
 
+// 事件相关
+
+function mousePressed() {
+	鼠标被按();
+}
+
+function 鼠标被按() {}
+
 // 其他
 
 function 新画布(宽, 高) {

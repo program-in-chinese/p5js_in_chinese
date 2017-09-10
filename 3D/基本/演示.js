@@ -1,3 +1,5 @@
+var 画布宽 = 710;
+var 画布高 = 400;
 var x间隔 = 240;
 var y间隔 = 200;
 
@@ -5,12 +7,12 @@ var 尺寸 = 70;
 var 环的体半径 = 20;
 
 function 构图(){
-  新画布(710, 400, WEBGL);
+  新画布(画布宽, 画布高, WEBGL);
 
   //saveFrames("3D_", "png", 10, 1);
 }
 
-function mousePressed() {
+function 鼠标被按() {
   保存帧("3D_", "png", 1, 1);
 }
 
