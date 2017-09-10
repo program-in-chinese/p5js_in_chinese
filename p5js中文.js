@@ -96,6 +96,18 @@ function 旋转(角度) {
 	rotate(角度);
 }
 
+function x轴旋转(角度) {
+	rotateX(角度);
+}
+
+function y轴旋转(角度) {
+	rotateY(角度);
+}
+
+function z轴旋转(角度) {
+	rotateZ(角度);
+}
+
 function 不填充() {
 	noFill();
 }
