@@ -14,7 +14,7 @@ jasper: I say (喇叭) can you stop angry now?
 小春: ok, sorry, sorry 
 */
 function draw() {
-  画脸(3, false);
+  画脸(1, false);
 }
 
 // 眼睛方向: 0 - 左, 1 - 上, 2 - 右, 3 - 下
@@ -26,8 +26,10 @@ fill(c);
 noStroke();
 ellipse(250,250,270,360);
 //face
+//左耳
 ellipse(120,250,60,80);
-//ear
+//右耳
+ellipse(380,250,60,80);
 
 // 宽额头(头部)
 rect(115,150,270,80);
@@ -35,11 +37,13 @@ rect(115,150,270,80);
 // 头发
 fill(0);
 noStroke();	
-arc(250,170,270,240,PI,0,CHORD);
+var 额头位移 = 小孩 ? 0 : 20;
+var 五官位移 = 小孩 ? 10 : 0;
+arc(250, 150 + 额头位移, 270, 240,PI,0,CHORD);
 
 // 前额
 fill(255,235,205);
-arc(250,170,270,170,PI,0,CHORD);
+arc(250, 150 + 额头位移, 270, 170,PI,0,CHORD);
 //fill(137,100,61);
 //ellipse(300,150,100,100);
 fill(255,235,205);
@@ -69,9 +73,9 @@ endShape();
 
 fill(200,80,80);
 noStroke();
-arc(235,360,50,25,PI,0,CHORD);
-arc(265,360,50,25,PI,0,CHORD);
-arc(250,365,80,30,0,PI,CHORD);
+arc(235,360 - 五官位移,50,25,PI,0,CHORD);
+arc(265,360 - 五官位移,50,25,PI,0,CHORD);
+arc(250,365 - 五官位移,80,30,0,PI,CHORD);
 //lips
 
 /*fill(255,195,195);
@@ -93,34 +97,23 @@ var 眼睛位移 = 取眼睛位移(眼睛方向);
 fill(255,249,250);
 strokeWeight(2);
 stroke(82,63,35);
-ellipse(180,240,60,25);
-ellipse(320,240,60,25);
+ellipse(180,240 + 五官位移,60,25);
+ellipse(320,240 + 五官位移,60,25);
 fill(74,44,0);
 noStroke();
-ellipse(180 + 眼睛位移.x, 240 + 眼睛位移.y, 22,22);  // 160, 240 -> 180 235 (左)
-ellipse(320 + 眼睛位移.x, 240 + 眼睛位移.y, 22,22);
+ellipse(180 + 眼睛位移.x, 240 + 眼睛位移.y + 五官位移, 22,22);  // 160, 240 -> 180 235 (左)
+ellipse(320 + 眼睛位移.x, 240 + 眼睛位移.y + 五官位移, 22,22);
 fill(0);
 noStroke();
-ellipse(180 + 眼睛位移.x, 240 + 眼睛位移.y, 15,15);
-ellipse(320 + 眼睛位移.x, 240 + 眼睛位移.y, 15,15);
+ellipse(180 + 眼睛位移.x, 240 + 眼睛位移.y + 五官位移, 15,15);
+ellipse(320 + 眼睛位移.x, 240 + 眼睛位移.y + 五官位移, 15,15);
 fill(255,249,250);
 noStroke();
-ellipse(175 + 眼睛位移.x, 240 + 眼睛位移.y, 5,5);
-ellipse(315 + 眼睛位移.x, 240 + 眼睛位移.y, 5,5);
+ellipse(175 + 眼睛位移.x, 240 + 眼睛位移.y + 五官位移, 5,5);
+ellipse(315 + 眼睛位移.x, 240 + 眼睛位移.y + 五官位移, 5,5);
 //eyes
 
-fill(250,250,250);
-noStroke();
-ellipse(10,10,200,200);
-triangle(100,100,70,70,50,100);
-//textbubble
-
-fill(0,102,153);
-textSize(15);
-text("Can you stop",5,30);
-textSize(15);
-text("angy now?",20,60);
-//text
+对话框();
 }
 
 // 眼睛方向: 0 - 左, 1 - 上, 2 - 右, 3 - 下
@@ -140,4 +133,19 @@ function 取眼睛位移(眼睛方向) {
     位移.y = 5;
   }
   return 位移;
+}
+
+function 对话框() {
+  fill(250,250,250);
+  noStroke();
+  ellipse(10,10,200,200);
+  triangle(100,100,70,70,50,100);
+  //textbubble
+
+  fill(0,102,153);
+  textSize(15);
+  text("Can you stop",5,30);
+  textSize(15);
+  text("angy now?",20,60);
+  //text
 }
