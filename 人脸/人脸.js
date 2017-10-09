@@ -16,8 +16,24 @@ jasper: I say (喇叭) can you stop angry now?
 */
 function draw() {
   背景色(白色);
-  画脸(1, true, 帧序号() / 2, "Can you stop", "angry now?");
-  画脸(3, false, 帧序号() * 1.5 + 200, "...OK", "Sorry.");
+  var 帧号 = 帧序号();
+  var 小春0 = 600;
+  var 小春1 = 800;
+  var 小春2 = 1000;
+  if (帧号 < 小春0) {
+    画脸(((帧号 / 50) % 2) * 2, true,  帧号/ 2, "", "");
+    画脸(3, false, 帧号 + 200, "Hurry up. Hurry up!", "Don't look!");
+  } else if (帧号 > 小春0 && 帧号 < 小春1) {
+    画脸(1, true,  帧号/ 2, "I know", "What's wrong with you?");
+    画脸(3, false, 小春0 + 200, "What's wrong with you?", "Hurry up!");
+  } else if (帧号 > 小春1 && 帧号 <小春2) {
+    画脸(1, true,  帧号/ 2, "can you stop", "angry now?");
+    画脸(3, false, 小春0 + 200, "Sorry??", "");
+  } else if (帧号 > 小春2) {
+    画脸(1, true,  帧号/ 2, "I say...CAN YOU", "STOP ANGRY NOW?");
+    画脸(3, false, 小春0 + (帧号 - 小春2)/2 + 200, "...OK", "Sorry.");
+  }
+
 }
 
 // 眼睛方向: 0 - 左, 1 - 上, 2 - 右, 3 - 下
@@ -141,9 +157,9 @@ function 对话框(x偏移, 行1, 行2) {
   //textbubble
 
   fill(0,102,153);
-  textSize(15);
+  textSize(20);
   text(行1,5 + x偏移,30);
-  textSize(15);
+  textSize(20);
   text(行2,20 + x偏移,60);
   //text
 }
