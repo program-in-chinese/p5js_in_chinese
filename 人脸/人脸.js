@@ -20,8 +20,9 @@ function draw() {
   var 小春0 = 600;
   var 小春1 = 800;
   var 小春2 = 1000;
+  var 小春3 = 1200;
   if (帧号 < 小春0) {
-    画脸(((帧号 / 50) % 2) * 2, true,  帧号/ 2, "", "");
+    画脸(Math.ceil(帧号 / 50) % 4, true,  帧号/ 2, "", "");
     画脸(3, false, 帧号 + 200, "Hurry up. Hurry up!", "Don't look!");
   } else if (帧号 > 小春0 && 帧号 < 小春1) {
     画脸(1, true,  帧号/ 2, "I know", "What's wrong with you?");
@@ -29,9 +30,12 @@ function draw() {
   } else if (帧号 > 小春1 && 帧号 <小春2) {
     画脸(1, true,  帧号/ 2, "can you stop", "angry now?");
     画脸(3, false, 小春0 + 200, "Sorry??", "");
-  } else if (帧号 > 小春2) {
+  } else if (帧号 > 小春2 && 帧号 <小春3) {
     画脸(1, true,  帧号/ 2, "I say...CAN YOU", "STOP ANGRY NOW?");
     画脸(3, false, 小春0 + (帧号 - 小春2)/2 + 200, "...OK", "Sorry.");
+  } else if (帧号 > 小春3){
+    画脸(2, true,  帧号/ 2, "", "");
+    画脸(0, false, 小春0 + (帧号 - 小春2)/2 + 200, "", "");
   }
 
 }
