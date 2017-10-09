@@ -1,7 +1,16 @@
 var 白色 = 255;
 
+// 最多只能15s, 详见https://p5js.org/reference/#/p5/saveFrames
+var 截取帧秒数 = 15;
+var 截取帧速 = 10;
+
+var 初始偏移 = -100;
+var 初始距离 = 200;
+
 function setup() {
   createCanvas(1000,500);
+
+  保存帧("人脸_", "png", 截取帧秒数, 截取帧速);
 }
 
 /*
@@ -17,25 +26,29 @@ jasper: I say (喇叭) can you stop angry now?
 function draw() {
   背景色(白色);
   var 帧号 = 帧序号();
-  var 小春0 = 600;
-  var 小春1 = 800;
-  var 小春2 = 1000;
-  var 小春3 = 1200;
+  var 对话距离 = 100;
+  var 小春0 = 400;
+  var 小春1 = 小春0 + 对话距离;
+  var 小春2 = 小春1 + 对话距离;
+  var 小春3 = 小春2 + 对话距离;
   if (帧号 < 小春0) {
     画脸(Math.ceil(帧号 / 50) % 4, true,  帧号/ 2, "", "");
-    画脸(3, false, 帧号 + 200, "Hurry up. Hurry up!", "Don't look!");
+    画脸(3, false, 帧号 + 初始距离, "Hurry up. Hurry up!", "Don't look!");
   } else if (帧号 > 小春0 && 帧号 < 小春1) {
-    画脸(1, true,  帧号/ 2, "I know", "What's wrong with you?");
-    画脸(3, false, 小春0 + 200, "What's wrong with you?", "Hurry up!");
+    var 前半 = 帧号 < 小春0 + 对话距离/2;
+    画脸(1, true,  帧号/ 2, 前半 ? "" : "I know", 前半 ? "" : "What's wrong with you?");
+    画脸(3, false, 小春0 + 初始距离, 前半 ? "哎!" : "", 前半 ? "Hurry up!" : "");
   } else if (帧号 > 小春1 && 帧号 <小春2) {
-    画脸(1, true,  帧号/ 2, "can you stop", "angry now?");
-    画脸(3, false, 小春0 + 200, "Sorry??", "");
+    var 前半 = 帧号 < 小春1 + 对话距离/2;
+    画脸(1, true,  小春1/ 2, 前半 ? "" : "Can you stop", 前半 ? "" : "angry now?");
+    画脸(3, false, 小春0 + 初始距离, 前半 ? "huh? What's wrong with you?" : "", 前半 ? "Hurry up~" : "");
   } else if (帧号 > 小春2 && 帧号 <小春3) {
-    画脸(1, true,  帧号/ 2, "I say...CAN YOU", "STOP ANGRY NOW?");
-    画脸(3, false, 小春0 + (帧号 - 小春2)/2 + 200, "...OK", "Sorry.");
+    var 前半 = 帧号 < 小春2 + 对话距离/2;
+    画脸(1, true,  小春1/ 2, 前半 ? "" : "I say...CAN YOU", 前半 ? "" : "STOP ANGRY NOW?");
+    画脸(3, false, 小春0 + 初始距离, 前半 ? "Sorry??" : "", 前半 ? "" : "");
   } else if (帧号 > 小春3){
-    画脸(2, true,  帧号/ 2, "", "");
-    画脸(0, false, 小春0 + (帧号 - 小春2)/2 + 200, "", "");
+    画脸(2, true,  小春1/ 2 + (帧号 - 小春3)/2, "", "");
+    画脸(0, false, 小春0 + (帧号 - 小春3)/2 + 初始距离, "...OK", "Sorry.");
   }
 
 }
@@ -43,7 +56,7 @@ function draw() {
 // 眼睛方向: 0 - 左, 1 - 上, 2 - 右, 3 - 下
 // 小孩: true 则额头大, 脸小
 function 画脸(眼睛方向, 小孩, 附加x偏移, 行1, 行2) {
-  var x偏移 = -300 + 附加x偏移;
+  var x偏移 = 初始偏移 + 附加x偏移;
   var y偏移 = 小孩 ? 100 : 0;
   
   var 比例 = 小孩 ? 0.8 : 1;
