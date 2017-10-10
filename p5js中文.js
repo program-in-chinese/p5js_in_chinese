@@ -72,8 +72,20 @@ function 背景色(灰度) {
 	background(灰度);
 }
 
+function 填色(色值) {
+	fill(色值);
+}
+
 function 填色(r, g, b, alpha) {
 	fill(r, g, b, alpha);
+}
+
+function 笔宽(宽) {
+	strokeWeight(宽);
+}
+
+function 笔色(r, g, b) {
+	stroke(r, g, b);
 }
 
 function 笔色(r, g, b, 透明度) {
