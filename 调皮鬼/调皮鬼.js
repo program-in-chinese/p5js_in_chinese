@@ -21,7 +21,7 @@ var heart = {
   col: '#EFCBD7'
 }
 
-
+var 白色 = 255;
 
 function setup() {
   createCanvas(600, 800);
@@ -32,15 +32,15 @@ function setup() {
 }
 
 function draw() {
-  background(BgColR, BgColG, BgColB);
-
+  //background(BgColR, BgColG, BgColB);
+  背景色(白色);
   //grid
-  for (let x = 25; x <= width; x += 50) {
+  /*for (let x = 25; x <= width; x += 50) {
 
       stroke(150);
       line(x, 0, x, height);
 
-  }
+  }*/
 
   //----Ghost body-----
   noStroke();
@@ -141,7 +141,7 @@ function draw() {
 
 
   //----heart---will glow
-  stroke(brow.col);
+  /*stroke(brow.col);
   strokeWeight(1 + (frameCount % 17));
   fill(brow.col)
   beginShape()
@@ -154,7 +154,7 @@ function draw() {
   curveVertex(173 - 20, 362 - 50);
   curveVertex(159 - 20, 415 - 50);
   curveVertex(135 - 20, 380 - 50);
-  endShape(CLOSE)
+  endShape(CLOSE)*/
 
 
 
@@ -192,11 +192,4 @@ function draw() {
   noStroke();
   fill(body.col);
   ellipse(170, 560, mouseX / 64, mouseX / 21)
-
-
-
-
-
-
-
 }
