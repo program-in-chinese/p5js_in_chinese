@@ -17,22 +17,17 @@ var eye = {
   col: '#020305'
 };
 
-var heart = {
-  col: '#EFCBD7'
-}
-
 var 白色 = 255;
+var 身体颜色 = '#000002'
 
 function setup() {
   createCanvas(600, 800);
-  BgColR = random(200, 255);
-  BgColG = random(180, 220);
-  BgColB = random(100, 200);
   frameRate(60)
 }
+
 function 身体() {
   noStroke();
-  fill(body.col);
+  fill(身体颜色);
   beginShape()
   curveVertex(345, 317);
   curveVertex(300, 329);
@@ -59,7 +54,7 @@ function 脸() {
 
 function 嘴() {
   strokeWeight(13);
-  stroke(body.col);
+  stroke(身体颜色);
   noFill();
   arc(360, 580, 50, 15, 0.2, 3, OPEN);
   strokeWeight(3);
@@ -132,9 +127,25 @@ function 右眼() {
   ellipse(403, 458, 20 + mouseX / 26, 20)
 }
 
+function 画包络线(起始点, 各点位移) {
+  var 当前点 = 起始点;
+  beginShape()
+  for (序号 in 各点位移) {
+    位移 = 各点位移[序号]
+    当前点 = [当前点[0] + 位移[0], 当前点[1] + 位移[1]];
+    console.log(当前点[0] + ", " + 当前点[1])
+    curveVertex(当前点[0], 当前点[1]);
+  }
+  endShape(CLOSE)
+}
+
+var 手臂起始点 = [302, 701]
+var 手臂各点位移 = [[0, 0], [-92, 55], [-26, -5], [-15, -25], [-11, -30], [-3, -55], [7, -42], [-10, -9],
+    [2, -12], [13, -11], [14, -2], [10, 9], [0, 19], [0, 29], [4, 28], [16, 15], [74, -40]]
+
 function 手臂() {
   noStroke()
-  fill(body.col);
+  fill(身体颜色);
   var angle = {
       x: mouseX / 18000
   };
@@ -142,8 +153,8 @@ function 手臂() {
       mouseX = 300
   }
   rotate(angle.x, 8000);
-  beginShape()
-  curveVertex(302, 701);
+  画包络线(手臂起始点, 手臂各点位移);
+  /*curveVertex(302, 701);
   curveVertex(210, 756);
   curveVertex(184, 751);
   curveVertex(169, 726);
@@ -159,13 +170,13 @@ function 手臂() {
   curveVertex(191, 622);
   curveVertex(195, 650);
   curveVertex(211, 665);
-  curveVertex(285, 625);
-  endShape(CLOSE)
+  curveVertex(285, 625);*/
+  
 }
 
 function 手指() {
   noStroke();
-  fill(body.col);
+  fill(身体颜色);
   ellipse(170, 560, mouseX / 64, mouseX / 21)
 }
 
