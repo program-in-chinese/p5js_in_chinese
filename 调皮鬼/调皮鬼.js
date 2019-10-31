@@ -37,13 +37,13 @@ function 构图() {
 }
 
 function 填色椭圆(颜色, 参数) {
-  noStroke()
+  无边界()
   填纯色(颜色);
   椭圆(参数.x, 参数.y, 参数.宽, 参数.高)
 }
 
 function 画包络线(颜色, 起始点, 各点位移) {
-  noStroke()
+  无边界()
   填纯色(颜色);
   var 当前点 = 起始点;
   beginShape()
@@ -56,12 +56,12 @@ function 画包络线(颜色, 起始点, 各点位移) {
 }
 
 function 嘴() {
-  strokeWeight(13);
-  stroke(主体颜色);
-  noFill();
-  arc(360, 580, 50, 15, 0.2, 3, OPEN);
-  strokeWeight(3);
-  arc(360, 600, 40, 10, 0.2, 3, OPEN);
+  笔宽(13);
+  笔色(主体颜色);
+  不填充();
+  画弧(360, 580, 50, 15, 0.2, 3, OPEN);
+  笔宽(3);
+  画弧(360, 600, 40, 10, 0.2, 3, OPEN);
 }
 
 function 手臂() {
