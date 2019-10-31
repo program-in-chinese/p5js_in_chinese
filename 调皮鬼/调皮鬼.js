@@ -1,3 +1,4 @@
+// 源自： https://editor.p5js.org/cg3320/sketches/SkLBx3TOX
 //*****ICM *****Week 2 Assignment
 //Created by CHENSHAN GAO on 2018/09/17
 //Create a sketch that includes (all of these):
@@ -87,10 +88,10 @@ function 嘴() {
 }
 
 function 手臂() {
-  旋转(mouseX / 18000)
+  旋转(鼠标().x / 18000)
   画包络线(体色, 手臂起始点, 手臂各点位移);
 }
 
 function 手指() {
-  填色椭圆(体色, {x: 170, y: 560, 宽: mouseX / 64, 高: mouseX / 21})
+  填色椭圆(体色, {x: 170, y: 560, 宽: 鼠标().x / 64, 高: 鼠标().x / 21})
 }
