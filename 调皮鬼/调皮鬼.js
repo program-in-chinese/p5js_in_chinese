@@ -9,10 +9,6 @@ var brow = {
   col: '#CB6064'
 };
 
-var body = {
-  col: '#000002'
-};
-
 var eye = {
   col: '#020305'
 };
@@ -61,32 +57,21 @@ function 嘴() {
   arc(360, 600, 40, 10, 0.2, 3, OPEN);
 }
 
+var 左上睫毛起始点 = [317, 446]
+var 左上睫毛各点位移 = [[0, 0], [-8, -15], [0, -14], [-12, 4], [0, 8], [2, 21]]
+
+var 左下睫毛起始点 = [316, 481]
+var 左下睫毛各点位移 = [[0, 0], [-6, 0], [-19, 6], [11, 27], [14, 19], [6, -3], [-4, -32]]
 function 左上睫毛() {
   noStroke();
   fill(brow.col)
-  beginShape()
-
-  curveVertex(307 + 10, 446);
-  curveVertex(299 + 10, 431);
-  curveVertex(299 + 10, 417);
-  curveVertex(287 + 10, 421);
-  curveVertex(282 + 10, 429);
-  curveVertex(280 + 10, 450);
-  endShape(CLOSE)
+  画包络线(左上睫毛起始点, 左上睫毛各点位移);
 }
 
 function 左下睫毛() {
   noStroke();
   fill(brow.col)
-  beginShape()
-  curveVertex(316, 476 + 5);
-  curveVertex(310, 476 + 5);
-  curveVertex(291, 482 + 5);
-  curveVertex(302, 509 + 5);
-  curveVertex(316, 528 + 5);
-  curveVertex(322, 525 + 5);
-  curveVertex(318, 498);
-  endShape(CLOSE)
+  画包络线(左下睫毛起始点, 左下睫毛各点位移);
 }
 
 function 左眼() {
@@ -98,27 +83,19 @@ function 左眼() {
 function 右上睫毛() {
   noStroke();
   fill(brow.col);
-  beginShape()
-  curveVertex(388, 407 + 10);
-  curveVertex(396, 400 + 10);
-  curveVertex(409, 417 + 10);
-  curveVertex(408, 428 + 10);
-  curveVertex(392, 434 + 10);
-  curveVertex(390, 424 + 10);
-  endShape(CLOSE);
+  画包络线(右上睫毛起始点, 右上睫毛各点位移);
 }
+
+var 右上睫毛起始点 = [388, 417]
+var 右上睫毛各点位移 = [[0, 0], [8, -7], [13, 17], [-1, 11], [-16, 6], [-2, -10]]
+
+var 右下睫毛起始点 = [395, 473]
+var 右下睫毛各点位移 = [[0, 0], [10, 46], [3, 12], [8, -25], [2, -14], [0, -21]]
 
 function 右下睫毛() {
   noStroke()
   fill(brow.col);
-  beginShape()
-  curveVertex(395, 468 + 5);
-  curveVertex(405, 514 + 5);
-  curveVertex(408, 526 + 5);
-  curveVertex(416, 501 + 5);
-  curveVertex(418, 487 + 5);
-  curveVertex(418, 466 + 5);
-  endShape(CLOSE)
+  画包络线(右下睫毛起始点, 右下睫毛各点位移);
 }
 
 function 右眼() {
@@ -154,24 +131,6 @@ function 手臂() {
   }
   rotate(angle.x, 8000);
   画包络线(手臂起始点, 手臂各点位移);
-  /*curveVertex(302, 701);
-  curveVertex(210, 756);
-  curveVertex(184, 751);
-  curveVertex(169, 726);
-  curveVertex(158, 696);
-  curveVertex(155, 641);
-  curveVertex(162, 599);
-  curveVertex(152, 590);
-  curveVertex(154, 578);
-  curveVertex(167, 567);
-  curveVertex(181, 565);
-  curveVertex(191, 574);
-  curveVertex(191, 593);
-  curveVertex(191, 622);
-  curveVertex(195, 650);
-  curveVertex(211, 665);
-  curveVertex(285, 625);*/
-  
 }
 
 function 手指() {
