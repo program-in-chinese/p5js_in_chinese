@@ -15,6 +15,10 @@ function 宽度() {
 	return width;
 }
 
+function 鼠标() {
+	return {x: mouseX, y: mouseY}
+}
+
 // 初始化相关
 function setup() {
 	构图();
@@ -39,6 +43,14 @@ function 三角形(x1, y1, x2, y2, x3, y3) {
 
 function 椭圆(中心x位置, 中心y位置, 宽, 高) {
 	ellipse(中心x位置, 中心y位置, 宽, 高);
+}
+
+function 按点连曲线(x, y) {
+	curveVertex(x, y)
+}
+
+function 画弧(x, y, w, h, 起始角, 终止角, 模式, 细节) {
+	arc(x, y, w, h, 起始角, 终止角, 模式, 细节)
 }
 
 // 三维相关
@@ -72,7 +84,7 @@ function 背景色(灰度) {
 	background(灰度);
 }
 
-function 填色(色值) {
+function 填纯色(色值) {
 	fill(色值);
 }
 
